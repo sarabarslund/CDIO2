@@ -4,7 +4,6 @@ public class Turn {
     public static int playerTurn(int turn_number){
         int turn = 0;
         if (turn_number % 2 == 0) {
-
             System.out.println("Player one's turn");
             turn = 1;
         } else {
