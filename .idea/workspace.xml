@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Merged dice-branch into master">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Custom_GUI.java" afterDir="false" />
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="First working board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Custom_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Custom_GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665476754031</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="First working board">
+      <created>1666263982699</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666263982700</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,6 +112,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Dice feature" />
     <MESSAGE value="Merged dice-branch into master" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged dice-branch into master" />
+    <MESSAGE value="First working board" />
+    <option name="LAST_COMMIT_MESSAGE" value="First working board" />
   </component>
 </project>
