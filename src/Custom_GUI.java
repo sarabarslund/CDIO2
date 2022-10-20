@@ -9,9 +9,9 @@ import java.util.Scanner;
 
 public class Custom_GUI {
     public GUI Customgui;
+    public static GUI_Field[] fields = new GUI_Field[12];
 
     public static GUI_Field[] customFieldFactory(){
-        GUI_Field[] fields = new GUI_Field[12];
         int i = 0;
         fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
         fields[i++] = new GUI_Street("Tower", "", "", "250", new Color(51,255,255), Color.BLACK);
@@ -47,9 +47,12 @@ public class Custom_GUI {
         }
         GUI_Player player1 = new GUI_Player(playername1, 0, car1);
         custom.addPlayer(player1);
+        fields[0].setCar(player1, true);
         String playername2 = custom.getUserString("Enter name of player 2:");
         GUI_Player player2 = new GUI_Player(playername2, 0, car2);
         custom.addPlayer(player2);
+        fields[0].setCar(player2, true);
+
 
     }
 }
