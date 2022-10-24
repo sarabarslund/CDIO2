@@ -1,0 +1,17 @@
+Index: src/Dice.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Dice.java b/src/Dices.java
+rename from src/Dice.java
+rename to src/Dices.java
+--- a/src/Dice.java	(revision fd027b0e82ea560f18fb9d029dfe1acb6820549d)
++++ b/src/Dices.java	(date 1666623278063)
+@@ -1,5 +1,5 @@
+ import java.util.Random;
+-public class Dice {
++public class Dices {
+     private static final int sides = 6;
+         public int roll(){
+             return new Random().nextInt(1, sides+1);
