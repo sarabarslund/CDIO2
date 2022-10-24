@@ -1,0 +1,313 @@
+Index: src/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class GameController {\r\n    public void playgame() {\r\n        //TODO logic goes here!\r\n        Dice dice = new Dice();\r\n        Dice dice2 = new Dice();\r\n        int roll = dice.roll();\r\n        int roll2 = dice2.roll();\r\n        System.out.println(\"rolls:\" + (roll+roll2));\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GameController.java b/src/GameController.java
+--- a/src/GameController.java	(revision eac9aa23ab9279ca50e29b22bdbfe8b1ba35c808)
++++ b/src/GameController.java	(date 1666621555400)
+@@ -1,12 +1,12 @@
+ public class GameController {
+     public void playgame() {
++
+         //TODO logic goes here!
++        Custom_GUI custom_gui = new Custom_GUI();
+         Dice dice = new Dice();
+-        Dice dice2 = new Dice();
+         int roll = dice.roll();
+-        int roll2 = dice2.roll();
++        int roll2 = dice.roll();
+         System.out.println("rolls:" + (roll+roll2));
+ 
+-
+     }
+ }
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import gui_main.GUI;\r\nimport java.util.Random;\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        GameController gameController = new GameController();\r\n        gameController.playgame();\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision eac9aa23ab9279ca50e29b22bdbfe8b1ba35c808)
++++ b/src/Main.java	(date 1666621125548)
+@@ -2,9 +2,7 @@
+ import java.util.Random;
+ public class Main {
+     public static void main(String[] args) {
+-
+         GameController gameController = new GameController();
+         gameController.playgame();
+-
+     }
+ }
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"17\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision eac9aa23ab9279ca50e29b22bdbfe8b1ba35c808)
++++ b/.idea/misc.xml	(date 1666621242102)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" default="true" project-jdk-name="18" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"Cars added\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Account.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_10_2022__17_38__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_10_2022__17_38__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_10_2022_15_31__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_10_2022_15_31__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Fu5XT1oEwyIFRNNnNaL3kDTMxW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"\" />\r\n      <created>1665329169693</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1665329169693</updated>\r\n      <workItem from=\"1665329726647\" duration=\"42000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"Account\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"Account\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision eac9aa23ab9279ca50e29b22bdbfe8b1ba35c808)
++++ b/.idea/workspace.xml	(date 1666621377514)
+@@ -5,10 +5,15 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Cars added">
+-      <change afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Field.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_10_2022__17_38__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_10_2022__17_38__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022__08_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022__08_50__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_10_2022_15_31__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_22_10_2022_15_31__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -25,10 +30,15 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="Player" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/src/Dice.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/GameController.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -39,17 +49,38 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Project",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
++  }
++}</component>
++  <component name="RecentsManager">
++    <key name="CreateClassDialog.RecentsKey">
++      <recent name="" />
++    </key>
++  </component>
++  <component name="RunManager">
++    <configuration name="Custom_GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Custom_GUI" />
++      <module name="CDIO2" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Custom_GUI" />
++        <item itemvalue="Application.Custom_GUI" />
++      </list>
++    </recent_temporary>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -60,6 +91,42 @@
+       <updated>1665329169693</updated>
+       <workItem from="1665329726647" duration="42000" />
+     </task>
++    <task id="LOCAL-00001" summary="Merged dice-branch into master">
++      <created>1665476754031</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1665476754031</updated>
++    </task>
++    <task id="LOCAL-00002" summary="First working board">
++      <created>1666263982699</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1666263982700</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Colors tweaked, ability to enter name for the players, and choose color for car.">
++      <created>1666268281850</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1666268281850</updated>
++    </task>
++    <task id="LOCAL-00004" summary="Cars added">
++      <created>1666270519959</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1666270519959</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Cars added">
++      <created>1666271028205</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1666271028205</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -70,37 +137,18 @@
+       <map>
+         <entry key="MAIN">
+           <value>
+-            <State>
+-              <option name="FILTERS">
+-                <map>
+-                  <entry key="branch">
+-                    <value>
+-                      <list>
+-                        <option value="Account" />
+-                      </list>
+-                    </value>
+-                  </entry>
+-                </map>
+-              </option>
+-            </State>
+-          </value>
+-        </entry>
+-      </map>
+-    </option>
+-    <option name="RECENT_FILTERS">
+-      <map>
+-        <entry key="Branch">
+-          <value>
+-            <list>
+-              <RecentGroup>
+-                <option name="FILTER_VALUES">
+-                  <option value="Account" />
+-                </option>
+-              </RecentGroup>
+-            </list>
++            <State />
+           </value>
+         </entry>
+       </map>
+     </option>
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="Dice feature" />
++    <MESSAGE value="Merged dice-branch into master" />
++    <MESSAGE value="First working board" />
++    <MESSAGE value="Colors tweaked, ability to enter name for the players, and choose color for car." />
++    <MESSAGE value="Cars added" />
++    <option name="LAST_COMMIT_MESSAGE" value="Cars added" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: src/Field.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Field.java b/src/Field.java
+new file mode 100644
+--- /dev/null	(date 1666621129903)
++++ b/src/Field.java	(date 1666621129903)
+@@ -0,0 +1,31 @@
++public class Field {
++    int[] fieldValue = {0, 250, -100, 100, -20, 180, 0, -70, 60, -80, -50, 650};
++    String[] fieldName = {"start", "Tower", "Crater", "Palace gates", "Cold Desert", "Walled city", "Monastery", "Black cave", "Huts in the mountain", "The Werewall", "The pit", "Goldmine"};
++    int player1Placement = 0;
++    int player2Placement = 0;
++
++
++    public void setPlayer1Placement(int player1Placement) {
++
++        if (this.player1Placement + player1Placement <= 12) {
++            this.player1Placement += player1Placement;
++        }
++        else {
++            this.player1Placement = this.player1Placement - 12 + player1Placement;
++        }
++    }
++
++    public void setPlayer2Placement(int player2Placement) {
++        if (this.player2Placement + player2Placement <= 12)
++            this.player2Placement += player2Placement;
++        else {
++            this.player2Placement = this.player2Placement - 12 + player2Placement;
++        }
++    }
++    public int getFieldValuePlayer1() {
++        return this.fieldValue[this.player1Placement - 1];
++    }
++    public int getFieldValuePlayer2() {
++        return fieldValue[player2Placement - 1];
++    }
++}
+Index: src/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Player.java b/src/Player.java
+new file mode 100644
+--- /dev/null	(date 1666621377020)
++++ b/src/Player.java	(date 1666621377020)
+@@ -0,0 +1,11 @@
++public class Player {
++    private final int player1 = 1, player2 = 2;
++
++    public int getPlayer1() {
++        return player1;
++    }
++    public int getPlayer2() {
++        return player2;
++    }
++
++}

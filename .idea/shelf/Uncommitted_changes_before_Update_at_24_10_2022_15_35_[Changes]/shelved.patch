@@ -1,0 +1,144 @@
+Index: src/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>public class GameController {\r\n    public void playgame() {\r\n        //TODO logic goes here!\r\n        Dice dice = new Dice();\r\n        Dice dice2 = new Dice();\r\n        int roll = dice.roll();\r\n        int roll2 = dice2.roll();\r\n        System.out.println(\"rolls:\" + (roll+roll2));\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GameController.java b/src/GameController.java
+--- a/src/GameController.java	(revision 8def4058d95d4a4c22e8c3cfef536736e8428c6f)
++++ b/src/GameController.java	(date 1665498705301)
+@@ -2,9 +2,8 @@
+     public void playgame() {
+         //TODO logic goes here!
+         Dice dice = new Dice();
+-        Dice dice2 = new Dice();
+         int roll = dice.roll();
+-        int roll2 = dice2.roll();
++        int roll2 = dice.roll();
+         System.out.println("rolls:" + (roll+roll2));
+ 
+ 
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import gui_main.GUI;\r\nimport java.util.Random;\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n\r\n        GameController gameController = new GameController();\r\n        gameController.playgame();\r\n\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision 8def4058d95d4a4c22e8c3cfef536736e8428c6f)
++++ b/src/Main.java	(date 1665498775342)
+@@ -3,8 +3,5 @@
+ public class Main {
+     public static void main(String[] args) {
+ 
+-        GameController gameController = new GameController();
+-        gameController.playgame();
+-
+     }
+ }
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"Merged dice-branch into master\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/GameController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Dice.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Dice.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Main.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"Dice_feature\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Fu5XT1oEwyIFRNNnNaL3kDTMxW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.0\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"\" />\r\n      <created>1665329169693</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1665329169693</updated>\r\n      <workItem from=\"1665329726647\" duration=\"42000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Merged dice-branch into master\">\r\n      <created>1665476754031</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1665476754031</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Dice feature\" />\r\n    <MESSAGE value=\"Merged dice-branch into master\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Merged dice-branch into master\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8def4058d95d4a4c22e8c3cfef536736e8428c6f)
++++ b/.idea/workspace.xml	(date 1665504864426)
+@@ -4,23 +4,15 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Merged dice-branch into master">
+-      <change afterPath="$PROJECT_DIR$/src/GameController.java" afterDir="false" />
++    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="GUI added as an external library.">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Dice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dice.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameController.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+@@ -29,6 +21,11 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/src/Dice.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/GameController.java" root0="FORCE_HIGHLIGHTING" />
++    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -41,20 +38,20 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "Project.color": "50114e",
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "C:/Users/emils/Desktop/Chess-master",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "project.structure.last.edited": "Project",
+     "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.0"
++    "project.structure.side.proportion": "0.2"
+   }
+ }]]></component>
+-  <component name="RecentsManager">
+-    <key name="CreateClassDialog.RecentsKey">
+-      <recent name="" />
+-    </key>
+-  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -64,15 +61,9 @@
+       <option name="presentableId" value="Default" />
+       <updated>1665329169693</updated>
+       <workItem from="1665329726647" duration="42000" />
++      <workItem from="1665486839853" duration="163000" />
++      <workItem from="1665504833020" duration="32000" />
+     </task>
+-    <task id="LOCAL-00001" summary="Merged dice-branch into master">
+-      <created>1665476754031</created>
+-      <option name="number" value="00001" />
+-      <option name="presentableId" value="LOCAL-00001" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1665476754031</updated>
+-    </task>
+-    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -91,7 +82,6 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Dice feature" />
+-    <MESSAGE value="Merged dice-branch into master" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Merged dice-branch into master" />
++    <option name="LAST_COMMIT_MESSAGE" value="Dice feature" />
+   </component>
+ </project>
+\ No newline at end of file
