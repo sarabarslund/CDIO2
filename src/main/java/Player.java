@@ -1,3 +1,5 @@
+package main.java;
+
 public class Player {
     private final int player1 = 1, player2 = 2;
 
