@@ -9,6 +9,14 @@ public class Dices {
         return dice1 + dice2;
     }
 
+    public int getDice1() {
+        return dice1;
+    }
+
+    public int getDice2() {
+        return dice2;
+    }
+
     public void rollDices() {
         this.dice1 = random.nextInt(1, 6);
         this.dice2 = random.nextInt(1, 6);
