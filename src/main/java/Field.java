@@ -30,4 +30,8 @@ public class Field {
     public int getFieldValuePlayer2() {
         return fieldValue[player2Placement - 1];
     }
+
+    public int[] getFieldValue() {
+        return fieldValue;
+    }
 }
