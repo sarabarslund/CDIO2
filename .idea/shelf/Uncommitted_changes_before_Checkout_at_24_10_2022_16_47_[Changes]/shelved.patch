@@ -1,0 +1,13 @@
+Index: src/GameController.java
+===================================================================
+diff --git a/src/GameController.java b/src/GameController.java
+--- a/src/GameController.java	
++++ b/src/GameController.java	
+@@ -1,6 +1,6 @@
+ import java.util.Scanner;
+ 
+-public class Controller {
++public class GameController {
+     Scanner sc = new Scanner(System.in);
+     // Starts relevant classes
+ 
