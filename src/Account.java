@@ -1,15 +1,21 @@
 public class Account {
-    int balance;
-    //Sets balance to 0
-    public Account() {
-        balance = 0;
+
+    private int balancePlayer1;
+    private int balancePlayer2;
+
+    public int getBalancePlayer1() {
+        return balancePlayer1;
     }
-    //Adds and subtracts points
-    public void edit(int amount) {
-        balance += amount;
+
+    public int getBalancePlayer2() {
+        return balancePlayer2;
     }
-    //Gets balance
-    public int getBalance() {
-        return balance;
+
+    public void setBalancePlayer1(int balancePlayer1) {
+        this.balancePlayer1 += balancePlayer1;
+    }
+
+    public void setBalancePlayer2(int balancePlayer2) {
+        this.balancePlayer2 += balancePlayer2;
     }
 }
