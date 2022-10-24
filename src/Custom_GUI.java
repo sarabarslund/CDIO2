@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Custom_GUI {
 
-    private static GUI customgui;
+    public static GUI customgui;
     private static GUI_Field[] fields = new GUI_Field[13];
     public static GUI_Player player1;
     public static GUI_Player player2;
@@ -28,17 +28,16 @@ public class Custom_GUI {
             car1.setPrimaryColor(Color.BLUE);
             car2.setPrimaryColor(Color.RED);
         }
-        player1 = new GUI_Player(playername1, 0, car1);
+        player1 = new GUI_Player(playername1, 1000, car1);
         customgui.addPlayer(player1);
         fields[0].setCar(player1, true);
         String playername2 = customgui.getUserString("Enter name of player 2:");
-        player2 = new GUI_Player(playername2, 0, car2);
+        player2 = new GUI_Player(playername2, 1000, car2);
         customgui.addPlayer(player2);
         fields[0].setCar(player2, true);
     }
     public static GUI_Field[] customFieldFactory(){
         int i = 0;
-        fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
         fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
         fields[i++] = new GUI_Street("Tower", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
         fields[i++] = new GUI_Street("Crater", "Loose 100", "", "-100", Color.RED, Color.BLACK);
@@ -66,4 +65,8 @@ public class Custom_GUI {
         fields[0].setCar(player1, true);
         fields[0].setCar(player2, true);
     }
+
+
+
+
 }
