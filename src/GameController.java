@@ -75,8 +75,10 @@ public class GameController {
             // Shows players new points
 
             if (currentPlayer == 1){
+                System.out.println("Hello");
                 System.out.println(acc.getBalancePlayer1());
             } else {
+                System.out.println("no");
                 System.out.println(acc.getBalancePlayer2());
             }
             if(F.player2Placement != 0 && F.player1Placement != 0){
