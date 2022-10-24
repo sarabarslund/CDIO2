@@ -19,6 +19,10 @@ public class GameController {
     // Starts the game loop. Ends loop when someone hits 3000
 
     public void startGame() {
+        //GUI StartUp
+        Custom_GUI custom_gui = new Custom_GUI();
+
+
         // Var for turns
         int turnSwitch = 0;
         int currentPlayer = 0;
@@ -35,10 +39,8 @@ public class GameController {
                 turnSwitch += 1;
             }
             // Lets current player throw the dice:
-            System.out.println("Throw dice");
-            sc.nextLine();
             dices.rollDices();
-
+            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());
             // Moves the piece
             if (currentPlayer == 1){
                 F.setPlayer1Placement(dices.getDices());
@@ -56,6 +58,7 @@ public class GameController {
             if (currentPlayer == 1){
                 System.out.println(acc.getBalancePlayer1());
             } else {System.out.println(acc.getBalancePlayer2());;}
+
 
 
             // starts over til win condition is hit.
