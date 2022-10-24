@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Controller {
+public class GameController {
     Scanner sc = new Scanner(System.in);
     // Starts relevant classes
 

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Dice {
+public class Dices {
 
     private final Random random = new Random();
     private int dice1, dice2;
@@ -10,8 +10,8 @@ public class Dice {
     }
 
     public void rollDices() {
-        this.dice1 = random.nextInt(0, 6);
-        this.dice2 = random.nextInt(0, 6);
+        this.dice1 = random.nextInt(1, 6);
+        this.dice2 = random.nextInt(1, 6);
 
     }
 }
