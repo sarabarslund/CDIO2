@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Minor test changes">
-      <change beforePath="$PROJECT_DIR$/src/test/java/DiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/probabilityOfNegativeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/probabilityOfNegativeTest.java" afterDir="false" />
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="New dices">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Custom_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Custom_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +24,14 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="DiceTest" />
+        <entry key="$PROJECT_DIR$" value="GameControllerv2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/GameController.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,7 +54,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.probabilityOfNegativeTest.chanceTest">
+  <component name="RunManager">
     <configuration name="Custom_GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Custom_GUI" />
       <module name="CDIO2" />
@@ -57,25 +62,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="probabilityOfNegativeTest.chanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDIO2" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.java.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test.java" />
-      <option name="MAIN_CLASS_NAME" value="test.java.probabilityOfNegativeTest" />
-      <option name="METHOD_NAME" value="chanceTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.probabilityOfNegativeTest.chanceTest" />
+        <item itemvalue="Application.Custom_GUI" />
         <item itemvalue="Application.Custom_GUI" />
         <item itemvalue="Application.Custom_GUI" />
         <item itemvalue="Application.Custom_GUI" />
@@ -121,21 +110,7 @@
       <option name="project" value="LOCAL" />
       <updated>1666622938273</updated>
     </task>
-    <task id="LOCAL-00005" summary="Test if dice go out of range and for probability of negative balance.">
-      <created>1666653824417</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1666653824417</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Minor test changes">
-      <created>1666654514304</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1666654514304</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,8 +158,6 @@
     <MESSAGE value="Field class made" />
     <MESSAGE value="Player class made" />
     <MESSAGE value="New dices" />
-    <MESSAGE value="Test if dice go out of range and for probability of negative balance." />
-    <MESSAGE value="Minor test changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Minor test changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="New dices" />
   </component>
 </project>
