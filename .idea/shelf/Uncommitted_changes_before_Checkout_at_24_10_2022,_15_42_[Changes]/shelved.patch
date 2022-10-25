@@ -1,0 +1,18 @@
+Index: src/Custom_GUI.java
+===================================================================
+diff --git a/src/Custom_GUI.java b/src/Custom_GUI.java
+--- a/src/Custom_GUI.java	
++++ b/src/Custom_GUI.java	
+@@ -31,10 +31,12 @@
+         player1 = new GUI_Player(playername1, 0, car1);
+         customgui.addPlayer(player1);
+         fields[0].setCar(player1, true);
++        player1.setBalance(1000);
+         String playername2 = customgui.getUserString("Enter name of player 2:");
+         player2 = new GUI_Player(playername2, 0, car2);
+         customgui.addPlayer(player2);
+         fields[0].setCar(player2, true);
++        player2.setBalance(1000);
+     }
+     public static GUI_Field[] customFieldFactory(){
+         int i = 0;

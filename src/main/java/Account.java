@@ -1,3 +1,5 @@
+package main.java;
+
 public class Account {
 
     private int balancePlayer1;
