@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class Custom_GUI {
 
     public static GUI customgui;
-    private static GUI_Field[] fields = new GUI_Field[13];
+    public static GUI_Field[] fields = new GUI_Field[12];
     public static GUI_Player player1;
     public static GUI_Player player2;
 
@@ -53,13 +53,13 @@ public class Custom_GUI {
         fields[i] = new GUI_Street("Goldmine", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
         return fields;
     }
-    public void moveCar(int field, GUI_Player player){
+    public static void moveCar(int field, GUI_Player player){
         fields[0].setCar(player, false);
         fields[field].setCar(player, true);
-        customgui.showMessage("Player moved to " + field);
+        customgui.showMessage("Player moved to " + (field + 1));
     }
-    public void resetBoard(){
-        for (int i = 0; i < fields.length - 1; i++) {
+    public static void resetBoard(){
+        for (int i = 0; i < fields.length; i++) {
             fields[i].setCar(player1, false);
             fields[i].setCar(player2,false);
         }
@@ -67,7 +67,10 @@ public class Custom_GUI {
         fields[0].setCar(player2, true);
     }
 
-
-
-
+    public static GUI_Player getPlayer1() {
+        return player1;
+    }
+    public static GUI_Player getPlayer2() {
+        return player2;
+    }
 }

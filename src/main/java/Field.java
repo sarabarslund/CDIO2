@@ -8,21 +8,15 @@ public class Field {
 
 
     public void setPlayer1Placement(int player1Placement) {
-
-        if (this.player1Placement + player1Placement <= 12) {
-            this.player1Placement += player1Placement;
-        }
-        else {
-            this.player1Placement = this.player1Placement - 12 + player1Placement;
-        }
+            this.player1Placement = player1Placement;
     }
 
     public void setPlayer2Placement(int player2Placement) {
-        if (this.player2Placement + player2Placement <= 12)
-            this.player2Placement += player2Placement;
-        else {
-            this.player2Placement = this.player2Placement - 12 + player2Placement;
-        }
+            this.player2Placement = player2Placement;
+    }
+    public void resetPlayerPlacement(){
+        player1Placement = 0;
+        player2Placement = 0;
     }
     public int getFieldValuePlayer1() {
         return this.fieldValue[this.player1Placement - 1];
