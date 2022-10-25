@@ -2,16 +2,7 @@ package test.java;
 
 import main.java.Dices;
 import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
-import java.util.logging.Logger;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.RepetitionInfo;
-import org.junit.jupiter.api.TestInfo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
