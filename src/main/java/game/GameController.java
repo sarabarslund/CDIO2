@@ -91,11 +91,11 @@ public class GameController {
             if(fieldP1.getPlayerPlacement() == 10){
                 turnSwitch--;
                 Custom_GUI.resetBoard();
-                customgui.showMessage("Start Next round");
+                customgui.showMessage("Double turn player 1!");
             }else if(fieldP2.getPlayerPlacement() == 10){
                 turnSwitch--;
                 Custom_GUI.resetBoard();
-                customgui.showMessage("Start Next round");
+                customgui.showMessage("Double turn player 2!");
             }
 
 
