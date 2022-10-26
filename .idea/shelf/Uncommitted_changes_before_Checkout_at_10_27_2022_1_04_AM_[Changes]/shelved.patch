@@ -1,0 +1,325 @@
+Index: src/main/java/game/Custom_GUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\r\n\r\nimport gui_fields.*;\r\nimport gui_main.GUI;\r\n\r\nimport java.awt.Color;\r\n\r\npublic class Custom_GUI {\r\n\r\n    public static GUI customgui;\r\n    public  static GUI_Field[] fields = new GUI_Field[12];\r\n    public static GUI_Player player1;\r\n    public static GUI_Player player2;\r\n\r\n    public void startGameGUI(){\r\n        //Game startup added as a constructor for the class\r\n        customgui = new GUI(customFieldFactory(), new Color(102,255,102));\r\n        String playername1 = customgui.getUserString(\"Enter name of player 1\");\r\n        String car1color = customgui.getUserSelection(\"Choose the color of your car\",\"Blue\",\"Red\");\r\n        GUI_Car car1 = new GUI_Car();\r\n        GUI_Car car2 = new GUI_Car();\r\n        if(car1color.contains(\"Red\")){\r\n            car1.setPrimaryColor(Color.RED);\r\n            car2.setPrimaryColor(Color.BLUE);\r\n        }else{\r\n            car1.setPrimaryColor(Color.BLUE);\r\n            car2.setPrimaryColor(Color.RED);\r\n        }\r\n        player1 = new GUI_Player(playername1, 1000, car1);\r\n        customgui.addPlayer(player1);\r\n        fields[0].setCar(player1, true);\r\n        String playername2 = customgui.getUserString(\"Enter name of player 2:\");\r\n        player2 = new GUI_Player(playername2, 1000, car2);\r\n        customgui.addPlayer(player2);\r\n        fields[0].setCar(player2, true);\r\n    }\r\n    public static GUI_Field[] customFieldFactory(){\r\n        int i = 0;\r\n        fields[i++] = new GUI_Street(\"Start\",\"\",\"\",\"\",Color.WHITE, Color.black);\r\n        fields[i++] = new GUI_Street(\"Tower\", \"Gain 250\", \"\", \"250\", new Color(51,255,255), Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Crater\", \"Loose 100\", \"\", \"-100\", Color.RED, Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Palace\", \"Gain 100\", \"\", \"100\", new Color(51,255,255), Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Cold Desert\", \"Loose 20\", \"\", \"-20\", Color.RED, Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Walled city \", \"Gain 180\", \"\", \"180\", new Color(51,255,255), Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Monastery\", \"\", \"\", \"0\", Color.GREEN, Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Black cave\", \"Loose 70\", \"\", \"-70\", Color.RED, Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"Huts in the mountain\", \"Gain 60\", \"\", \"60\", new Color(51,255,255), Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"The Werewall\", \"Extra turn\", \"Loose 80 and get an extra turn\", \"-80\", Color.RED, Color.BLACK);\r\n        fields[i++] = new GUI_Street(\"The pit\", \"Loose 50\", \"\", \"-50\", Color.RED, Color.BLACK);\r\n        fields[i] = new GUI_Street(\"Goldmine\", \"Gain 650!\", \"\", \"650\", new Color(255, 215, 0), Color.BLACK);\r\n        return fields;\r\n    }\r\n    public static void moveCar(int field, GUI_Player player){\r\n        fields[0].setCar(player, false);\r\n        fields[field].setCar(player, true);\r\n        customgui.showMessage(\"Player moved to \" + (field + 1));\r\n    }\r\n    public static void resetBoard(){\r\n        for (int i = 0; i < fields.length; i++) {\r\n            fields[i].setCar(player1, false);\r\n            fields[i].setCar(player2,false);\r\n        }\r\n        fields[0].setCar(player1, true);\r\n        fields[0].setCar(player2, true);\r\n    }\r\n\r\n    public static GUI_Player getPlayer1() {\r\n        return player1;\r\n    }\r\n    public static GUI_Player getPlayer2() {\r\n        return player2;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/game/Custom_GUI.java b/src/main/java/game/Custom_GUI.java
+--- a/src/main/java/game/Custom_GUI.java	(revision f26333545d7065988c9d69d96ff0b0f8c9781e46)
++++ b/src/main/java/game/Custom_GUI.java	(date 1666824662066)
+@@ -6,12 +6,13 @@
+ import java.awt.Color;
+ 
+ public class Custom_GUI {
+-
++    // define static information. Made static and public as the GUI is unlikely to have commands conflicting with other classes.
+     public static GUI customgui;
+-    public  static GUI_Field[] fields = new GUI_Field[12];
++    public  static GUI_Field[] fields = new GUI_Field[13];
+     public static GUI_Player player1;
+     public static GUI_Player player2;
+ 
++    // Starts the gameUI, and prompts the user to enter his/hers name, as well as setting their cars color.
+     public void startGameGUI(){
+         //Game startup added as a constructor for the class
+         customgui = new GUI(customFieldFactory(), new Color(102,255,102));
+@@ -34,26 +35,29 @@
+         customgui.addPlayer(player2);
+         fields[0].setCar(player2, true);
+     }
++
++    // define the playing fields
+     public static GUI_Field[] customFieldFactory(){
+         int i = 0;
+-        fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
+-        fields[i++] = new GUI_Street("Tower", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Crater", "Loose 100", "", "-100", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Palace", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Cold Desert", "Loose 20", "", "-20", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Walled city ", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Monastery", "", "", "0", Color.GREEN, Color.BLACK);
+-        fields[i++] = new GUI_Street("Black cave", "Loose 70", "", "-70", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Huts in the mountain", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("The Werewall", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("The pit", "Loose 50", "", "-50", Color.RED, Color.BLACK);
+-        fields[i] = new GUI_Street("Goldmine", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
++
++        fields[i++] = new GUI_Street("Start", "", "", "-50", Color.WHITE, Color.BLACK);
++        fields[i++] = new GUI_Street("Instant win\n   1","","","",Color.BLACK, Color.WHITE);
++        fields[i++] = new GUI_Street("Tower\n   2", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
++        fields[i++] = new GUI_Street("Crater\n   3", "Loose 100", "", "-100", Color.RED, Color.BLACK);
++        fields[i++] = new GUI_Street("Palace\n   4", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
++        fields[i++] = new GUI_Street("Cold Desert\n   5", "Loose 20", "", "-20", Color.RED, Color.BLACK);
++        fields[i++] = new GUI_Street("Walled city\n   6", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
++        fields[i++] = new GUI_Street("Monastery\n   7", "", "", "0", Color.GREEN, Color.BLACK);
++        fields[i++] = new GUI_Street("Black cave\n   8", "Loose 70", "", "-70", Color.RED, Color.BLACK);
++        fields[i++] = new GUI_Street("Huts in the mountain\n   9", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
++        fields[i++] = new GUI_Street("The Werewall\n   10", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
++        fields[i++] = new GUI_Street("The pit\n   11", "Loose 50", "", "-50", Color.RED, Color.BLACK);
++        fields[i] = new GUI_Street("Goldmine\n   12", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
+         return fields;
+     }
+     public static void moveCar(int field, GUI_Player player){
+         fields[0].setCar(player, false);
+         fields[field].setCar(player, true);
+-        customgui.showMessage("Player moved to " + (field + 1));
+     }
+     public static void resetBoard(){
+         for (int i = 0; i < fields.length; i++) {
+Index: src/main/java/game/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class GameController {\r\n    Scanner sc = new Scanner(System.in);\r\n    // Starts relevant classes\r\n\r\n    private final Account acc1 = new Account();\r\n    private final Account acc2 = new Account();\r\n    private final Field fieldP1 = new Field();\r\n    private final Field fieldP2 = new Field();\r\n    private final Player player = new Player();\r\n    private final Dices dices = new Dices();\r\n\r\n\r\n    // Sets starting balance\r\n\r\n    public void startBalance() {\r\n        acc1.setBalance(1000);\r\n        acc2.setBalance(1000);\r\n    }\r\n\r\n    // Starts the game loop. Ends loop when someone hits 3000\r\n\r\n    public void startGame() {\r\n        //GUI StartUp\r\n        Custom_GUI custom_gui = new Custom_GUI();\r\n        custom_gui.startGameGUI();\r\n        // Var for turns\r\n        int turnSwitch = 0;\r\n        int currentPlayer;\r\n        // Win condition\r\n        Custom_GUI.customgui.showMessage(\"Start Game\");\r\n        while (true){\r\n            // Chooses player to play\r\n            if (turnSwitch%2 == 0){\r\n                currentPlayer = player.getPlayer1();\r\n                turnSwitch += 1;\r\n            }\r\n            else{\r\n                currentPlayer = player.getPlayer2();\r\n                turnSwitch += 1;\r\n            }\r\n            // Lets current player throw the dice:\r\n            dices.rollDices();\r\n            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());\r\n            // Moves the piece\r\n\r\n\r\n\r\n            // Sets the players points, check if points is negative\r\n\r\n\r\n\r\n            if (currentPlayer == 1){\r\n                fieldP1.setPlayerPlacement(dices.getDices());\r\n                System.out.printf(\"car moves\");\r\n                Custom_GUI.moveCar(fieldP1.getPlayerPlacement() - 1, Custom_GUI.getPlayer1());\r\n                if(fieldP1.getPlayerPlacement() == 10){\r\n                    turnSwitch--;\r\n                    Custom_GUI.resetBoard();\r\n                    Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n                }\r\n            }\r\n            else {\r\n                fieldP2.setPlayerPlacement(dices.getDices());\r\n                Custom_GUI.moveCar(fieldP2.getPlayerPlacement() - 1, Custom_GUI.getPlayer2());\r\n                if(fieldP2.getPlayerPlacement() == 10){\r\n                    turnSwitch--;\r\n                    Custom_GUI.resetBoard();\r\n                    Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n                }\r\n            }\r\n\r\n            if (currentPlayer == 1){\r\n                acc1.setBalance(fieldP1.getFieldValue(fieldP1.getPlayerPlacement()));\r\n                if(acc1.negativeBalance() == false){break;}\r\n                Custom_GUI.player1.setBalance(acc1.getBalance());\r\n            } else {\r\n                acc2.setBalance(fieldP2.getFieldValue(fieldP2.getPlayerPlacement()));\r\n                if(acc2.negativeBalance() == false){break;}\r\n                Custom_GUI.player2.setBalance(acc2.getBalance());\r\n            }\r\n            // Shows players new points\r\n\r\n            if (currentPlayer == 1){\r\n                System.out.println(\"Hello\");\r\n                System.out.println(acc1.getBalance());\r\n            } else {\r\n                System.out.println(\"no\");\r\n                System.out.println(acc2.getBalance());\r\n            }\r\n            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){\r\n                Custom_GUI.resetBoard();\r\n                fieldP1.resetPlayerPlacement();\r\n                Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n            }\r\n            // starts over til win condition is hit.\r\n            if(acc1.getBalance() > 3000 || acc2.getBalance() > 3000){\r\n                if(acc1.getBalance() > 3000){\r\n                    System.out.println(\"Player 1 Won\");\r\n                } else{\r\n                    System.out.println(\"Player 2 Won\");\r\n                }\r\n                break;\r\n            }\r\n        }\r\n        Custom_GUI.customgui.close();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/game/GameController.java b/src/main/java/game/GameController.java
+--- a/src/main/java/game/GameController.java	(revision f26333545d7065988c9d69d96ff0b0f8c9781e46)
++++ b/src/main/java/game/GameController.java	(date 1666824662067)
+@@ -2,6 +2,8 @@
+ 
+ import java.util.Scanner;
+ 
++import static game.Custom_GUI.customgui;
++
+ public class GameController {
+     Scanner sc = new Scanner(System.in);
+     // Starts relevant classes
+@@ -24,15 +26,19 @@
+     // Starts the game loop. Ends loop when someone hits 3000
+ 
+     public void startGame() {
++
+         //GUI StartUp
+         Custom_GUI custom_gui = new Custom_GUI();
+         custom_gui.startGameGUI();
++
+         // Var for turns
+         int turnSwitch = 0;
+         int currentPlayer;
++
+         // Win condition
+-        Custom_GUI.customgui.showMessage("Start Game");
++        customgui.showMessage("Start Game");
+         while (true){
++
+             // Chooses player to play
+             if (turnSwitch%2 == 0){
+                 currentPlayer = player.getPlayer1();
+@@ -42,37 +48,23 @@
+                 currentPlayer = player.getPlayer2();
+                 turnSwitch += 1;
+             }
++
+             // Lets current player throw the dice:
+             dices.rollDices();
+-            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());
+-            // Moves the piece
+-
++            customgui.setDice(dices.getDice1(), dices.getDice2());
+ 
+-
+-            // Sets the players points, check if points is negative
+-
+-
+-
++            // moves the piece
+             if (currentPlayer == 1){
+                 fieldP1.setPlayerPlacement(dices.getDices());
+-                System.out.printf("car moves");
+-                Custom_GUI.moveCar(fieldP1.getPlayerPlacement() - 1, Custom_GUI.getPlayer1());
+-                if(fieldP1.getPlayerPlacement() == 10){
+-                    turnSwitch--;
+-                    Custom_GUI.resetBoard();
+-                    Custom_GUI.customgui.showMessage("Start Next round");
+-                }
++                Custom_GUI.moveCar(fieldP1.getPlayerPlacement(), Custom_GUI.getPlayer1());
++
+             }
+             else {
+                 fieldP2.setPlayerPlacement(dices.getDices());
+-                Custom_GUI.moveCar(fieldP2.getPlayerPlacement() - 1, Custom_GUI.getPlayer2());
+-                if(fieldP2.getPlayerPlacement() == 10){
+-                    turnSwitch--;
+-                    Custom_GUI.resetBoard();
+-                    Custom_GUI.customgui.showMessage("Start Next round");
+-                }
++                Custom_GUI.moveCar(fieldP2.getPlayerPlacement(), Custom_GUI.getPlayer2());
+             }
+ 
++            // Shows players new points
+             if (currentPlayer == 1){
+                 acc1.setBalance(fieldP1.getFieldValue(fieldP1.getPlayerPlacement()));
+                 if(acc1.negativeBalance() == false){break;}
+@@ -82,20 +74,7 @@
+                 if(acc2.negativeBalance() == false){break;}
+                 Custom_GUI.player2.setBalance(acc2.getBalance());
+             }
+-            // Shows players new points
+ 
+-            if (currentPlayer == 1){
+-                System.out.println("Hello");
+-                System.out.println(acc1.getBalance());
+-            } else {
+-                System.out.println("no");
+-                System.out.println(acc2.getBalance());
+-            }
+-            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){
+-                Custom_GUI.resetBoard();
+-                fieldP1.resetPlayerPlacement();
+-                Custom_GUI.customgui.showMessage("Start Next round");
+-            }
+             // starts over til win condition is hit.
+             if(acc1.getBalance() > 3000 || acc2.getBalance() > 3000){
+                 if(acc1.getBalance() > 3000){
+@@ -105,8 +84,34 @@
+                 }
+                 break;
+             }
++
++            // Information about plater movement, must be last as it pauses program
++            customgui.showMessage("Player " + currentPlayer + " moved to " + (dices.getDices()));
++
++            if(fieldP1.getPlayerPlacement() == 10){
++                turnSwitch--;
++                Custom_GUI.resetBoard();
++                customgui.showMessage("Start Next round");
++            }else if(fieldP2.getPlayerPlacement() == 10){
++                turnSwitch--;
++                Custom_GUI.resetBoard();
++                customgui.showMessage("Start Next round");
++            }
++
++
++            // Sets the players to start position for start of new round
++            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){
++                System.out.println("I resat the board");
++                Custom_GUI.resetBoard();
++                fieldP1.resetPlayerPlacement();
++                fieldP2.resetPlayerPlacement();
++                customgui.showMessage("Start Next round");
++            }
++
++
++
+         }
+-        Custom_GUI.customgui.close();
++        customgui.close();
+ 
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"Getting rid of redundant code in GameController, Account and Field classes\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"GameControllerv2\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2Fu5XT1oEwyIFRNNnNaL3kDTMxW\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/emils/Downloads/matadorgui-3.1.6.jar&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\emils\\OneDrive\\Dokumenter\\GitHub\\CDIO2\\src\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"game.Main\" />\r\n      <module name=\"CDIO2\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"\" />\r\n      <created>1665329169693</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1665329169693</updated>\r\n      <workItem from=\"1665329726647\" duration=\"42000\" />\r\n      <workItem from=\"1666815863715\" duration=\"785000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Field class made\">\r\n      <created>1666621725761</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666621725761</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Player class made\">\r\n      <created>1666621826098</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666621826098</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"New dices\">\r\n      <created>1666622907881</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666622907881</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"New dices\">\r\n      <created>1666622938273</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666622938273</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Small changes\">\r\n      <created>1666626012634</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666626012634</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Custom GUI Implementation\">\r\n      <created>1666635324874</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666635324875</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Custom GUI Implementation now functional\">\r\n      <created>1666636186539</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666636186539</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Getting rid of redundant code in GameController, Account and Field classes\">\r\n      <created>1666817016705</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1666817016705</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"9\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"origin/master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_FILTERS\">\r\n      <map>\r\n        <entry key=\"Branch\">\r\n          <value>\r\n            <list>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/master\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"origin/GameControllerv2\" />\r\n                </option>\r\n              </RecentGroup>\r\n              <RecentGroup>\r\n                <option name=\"FILTER_VALUES\">\r\n                  <option value=\"Account\" />\r\n                </option>\r\n              </RecentGroup>\r\n            </list>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Field class made\" />\r\n    <MESSAGE value=\"Player class made\" />\r\n    <MESSAGE value=\"New dices\" />\r\n    <MESSAGE value=\"Small changes\" />\r\n    <MESSAGE value=\"Custom GUI Implementation\" />\r\n    <MESSAGE value=\"Custom GUI Implementation now functional\" />\r\n    <MESSAGE value=\"Getting rid of redundant code in GameController, Account and Field classes\" />\r\n    <MESSAGE value=\"Setting up for tests\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Setting up for tests\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f26333545d7065988c9d69d96ff0b0f8c9781e46)
++++ b/.idea/workspace.xml	(date 1666825387692)
+@@ -4,7 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Getting rid of redundant code in GameController, Account and Field classes" />
++    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Getting rid of redundant code in GameController, Account and Field classes">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/CDIO2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CDIO2.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameController.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/game/Custom_GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Custom_GUI.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/game/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/GameController.class" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -34,23 +41,23 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/emils/Downloads/matadorgui-3.1.6.jar&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Git.Branch.Popup.ShowAllRemotes": "true",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "C:/GitHub/CDIO2",
++    "node.js.detected.package.eslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\emils\OneDrive\Dokumenter\GitHub\CDIO2\src" />
+@@ -84,6 +91,7 @@
+       <updated>1665329169693</updated>
+       <workItem from="1665329726647" duration="42000" />
+       <workItem from="1666815863715" duration="785000" />
++      <workItem from="1666825365802" duration="22000" />
+     </task>
+     <task id="LOCAL-00001" summary="Field class made">
+       <created>1666621725761</created>
+Index: CDIO2.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_18\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"19\" jdkType=\"JavaSDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"module-library\">\r\n      <library name=\"JUnit5.8.1\">\r\n        <CLASSES>\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter/5.8.1/junit-jupiter-5.8.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/5.8.1/junit-jupiter-params-5.8.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar!/\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n    <orderEntry type=\"module-library\">\r\n      <library name=\"JUnit4\">\r\n        <CLASSES>\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/junit/junit/4.13.1/junit-4.13.1.jar!/\" />\r\n          <root url=\"jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n    <orderEntry type=\"library\" name=\"Maven: org.junit.jupiter:junit-jupiter:5.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.junit.jupiter:junit-jupiter-api:5.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.opentest4j:opentest4j:1.2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.junit.platform:junit-platform-commons:1.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apiguardian:apiguardian-api:1.1.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.junit.jupiter:junit-jupiter-params:5.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: org.junit.platform:junit-platform-engine:1.9.0\" level=\"project\" />\r\n    <orderEntry type=\"module-library\">\r\n      <library>\r\n        <CLASSES>\r\n          <root url=\"jar://$USER_HOME$/Downloads/matadorgui-3.1.6.jar!/\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/CDIO2.iml b/CDIO2.iml
+--- a/CDIO2.iml	(revision f26333545d7065988c9d69d96ff0b0f8c9781e46)
++++ b/CDIO2.iml	(date 1666825376937)
+@@ -36,14 +36,6 @@
+         <SOURCES />
+       </library>
+     </orderEntry>
+-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter:5.9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
+-    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.0" level="project" />
+-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0" level="project" />
+-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-engine:1.9.0" level="project" />
+     <orderEntry type="module-library">
+       <library>
+         <CLASSES>
+@@ -53,5 +45,13 @@
+         <SOURCES />
+       </library>
+     </orderEntry>
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter:5.9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-api:5.9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.opentest4j:opentest4j:1.2.0" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.platform:junit-platform-commons:1.9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
++    <orderEntry type="library" name="Maven: org.junit.jupiter:junit-jupiter-params:5.9.0" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.9.0" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Maven: org.junit.platform:junit-platform-engine:1.9.0" level="project" />
+   </component>
+ </module>
+\ No newline at end of file

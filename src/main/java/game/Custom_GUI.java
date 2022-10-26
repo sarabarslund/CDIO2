@@ -6,12 +6,13 @@ import gui_main.GUI;
 import java.awt.Color;
 
 public class Custom_GUI {
-
+    // define static information. Made static and public as the GUI is unlikely to have commands conflicting with other classes.
     public static GUI customgui;
-    public  static GUI_Field[] fields = new GUI_Field[12];
+    public  static GUI_Field[] fields = new GUI_Field[13];
     public static GUI_Player player1;
     public static GUI_Player player2;
 
+    // Starts the gameUI, and prompts the user to enter his/hers name, as well as setting their cars color.
     public void startGameGUI(){
         //Game startup added as a constructor for the class
         customgui = new GUI(customFieldFactory(), new Color(102,255,102));
@@ -34,26 +35,29 @@ public class Custom_GUI {
         customgui.addPlayer(player2);
         fields[0].setCar(player2, true);
     }
+
+    // define the playing fields
     public static GUI_Field[] customFieldFactory(){
         int i = 0;
-        fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
-        fields[i++] = new GUI_Street("Tower", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
-        fields[i++] = new GUI_Street("Crater", "Loose 100", "", "-100", Color.RED, Color.BLACK);
-        fields[i++] = new GUI_Street("Palace", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
-        fields[i++] = new GUI_Street("Cold Desert", "Loose 20", "", "-20", Color.RED, Color.BLACK);
-        fields[i++] = new GUI_Street("Walled city ", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
-        fields[i++] = new GUI_Street("Monastery", "", "", "0", Color.GREEN, Color.BLACK);
-        fields[i++] = new GUI_Street("Black cave", "Loose 70", "", "-70", Color.RED, Color.BLACK);
-        fields[i++] = new GUI_Street("Huts in the mountain", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
-        fields[i++] = new GUI_Street("The Werewall", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
-        fields[i++] = new GUI_Street("The pit", "Loose 50", "", "-50", Color.RED, Color.BLACK);
-        fields[i] = new GUI_Street("Goldmine", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
+
+        fields[i++] = new GUI_Street("Start", "", "", "-50", Color.WHITE, Color.BLACK);
+        fields[i++] = new GUI_Street("Instant win\n   1","","","",Color.BLACK, Color.WHITE);
+        fields[i++] = new GUI_Street("Tower\n   2", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
+        fields[i++] = new GUI_Street("Crater\n   3", "Loose 100", "", "-100", Color.RED, Color.BLACK);
+        fields[i++] = new GUI_Street("Palace\n   4", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
+        fields[i++] = new GUI_Street("Cold Desert\n   5", "Loose 20", "", "-20", Color.RED, Color.BLACK);
+        fields[i++] = new GUI_Street("Walled city\n   6", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
+        fields[i++] = new GUI_Street("Monastery\n   7", "", "", "0", Color.GREEN, Color.BLACK);
+        fields[i++] = new GUI_Street("Black cave\n   8", "Loose 70", "", "-70", Color.RED, Color.BLACK);
+        fields[i++] = new GUI_Street("Huts in the mountain\n   9", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
+        fields[i++] = new GUI_Street("The Werewall\n   10", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
+        fields[i++] = new GUI_Street("The pit\n   11", "Loose 50", "", "-50", Color.RED, Color.BLACK);
+        fields[i] = new GUI_Street("Goldmine\n   12", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
         return fields;
     }
     public static void moveCar(int field, GUI_Player player){
         fields[0].setCar(player, false);
         fields[field].setCar(player, true);
-        customgui.showMessage("Player moved to " + (field + 1));
     }
     public static void resetBoard(){
         for (int i = 0; i < fields.length; i++) {
