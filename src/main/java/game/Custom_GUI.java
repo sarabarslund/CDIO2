@@ -8,11 +8,11 @@ import java.awt.Color;
 public class Custom_GUI {
 
     public static GUI customgui;
-    public static GUI_Field[] fields = new GUI_Field[12];
+    public  static GUI_Field[] fields = new GUI_Field[12];
     public static GUI_Player player1;
     public static GUI_Player player2;
 
-    public Custom_GUI(){
+    public void startGameGUI(){
         //Game startup added as a constructor for the class
         customgui = new GUI(customFieldFactory(), new Color(102,255,102));
         String playername1 = customgui.getUserString("Enter name of player 1");

@@ -1,0 +1,25 @@
+Index: src/main/java/game/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\r\n\r\nimport java.util.Scanner;\r\n\r\npublic class GameController {\r\n    Scanner sc = new Scanner(System.in);\r\n    // Starts relevant classes\r\n\r\n    Account acc1 = new Account();\r\n    Account acc2 = new Account();\r\n    Field fieldP1 = new Field();\r\n    Field fieldP2 = new Field();\r\n    Player player = new Player();\r\n    Dices dices = new Dices();\r\n\r\n    // Sets starting balance\r\n\r\n    public void startBalance() {\r\n        acc1.setBalance(1000);\r\n        acc2.setBalance(1000);\r\n    }\r\n\r\n    // Starts the game loop. Ends loop when someone hits 3000\r\n\r\n    public void startGame() {\r\n        //GUI StartUp\r\n\r\n        // Var for turns\r\n        int turnSwitch = 0;\r\n        int currentPlayer = 0;\r\n\r\n        // Win condition\r\n        Custom_GUI.customgui.showMessage(\"Start Game\");\r\n        while (true){\r\n            // Chooses player to play\r\n            if (turnSwitch%2 == 0){\r\n                currentPlayer = player.getPlayer1();\r\n                turnSwitch += 1;\r\n            }\r\n            else{\r\n                currentPlayer = player.getPlayer2();\r\n                turnSwitch += 1;\r\n            }\r\n            // Lets current player throw the dice:\r\n            dices.rollDices();\r\n            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());\r\n            // Moves the piece\r\n            if (currentPlayer == 1){\r\n                fieldP1.setPlayerPlacement(dices.getDices());\r\n                Custom_GUI.moveCar(fieldP1.getPlayerPlacement() - 1, Custom_GUI.getPlayer1());\r\n                if(fieldP1.getPlayerPlacement() == 10){\r\n                    turnSwitch--;\r\n                    Custom_GUI.resetBoard();\r\n                    Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n                }\r\n            }\r\n            else {\r\n                fieldP2.setPlayerPlacement(dices.getDices());\r\n                Custom_GUI.moveCar(fieldP2.getPlayerPlacement() - 1, Custom_GUI.getPlayer2());\r\n                if(fieldP2.getPlayerPlacement() == 10){\r\n                    turnSwitch--;\r\n                    Custom_GUI.resetBoard();\r\n                    Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n                }\r\n            }\r\n\r\n            // Sets the players points\r\n\r\n            if (currentPlayer == 1){\r\n                acc1.setBalance(fieldP1.getFieldValue(fieldP1.getPlayerPlacement()));\r\n                Custom_GUI.player1.setBalance(acc1.getBalance());\r\n            } else {\r\n                acc2.setBalance(fieldP2.getFieldValue(fieldP2.getPlayerPlacement()));\r\n                Custom_GUI.player2.setBalance(acc2.getBalance());\r\n            }\r\n\r\n            // Shows players new points\r\n\r\n            if (currentPlayer == 1){\r\n                System.out.println(\"Hello\");\r\n                System.out.println(acc1.getBalance());\r\n            } else {\r\n                System.out.println(\"no\");\r\n                System.out.println(acc2.getBalance());\r\n            }\r\n            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){\r\n                Custom_GUI.resetBoard();\r\n                fieldP1.resetPlayerPlacement();\r\n                Custom_GUI.customgui.showMessage(\"Start Next round\");\r\n            }\r\n            // starts over til win condition is hit.\r\n            if(acc1.getBalance() > 3000 || acc2.getBalance() > 3000){\r\n                if(acc1.getBalance() > 3000){\r\n                    System.out.println(\"Player 1 Won\");\r\n                } else{\r\n                    System.out.println(\"Player 2 Won\");\r\n                }\r\n                break;\r\n            }\r\n\r\n            // starts over til win condition is hit.\r\n            if(acc1.getBalance() < 0 || acc2.getBalance() < 0){\r\n                if(acc1.getBalance() < 0){\r\n                    System.out.println(\"System crashed, Balance below 0\");\r\n                }\r\n                break;\r\n            }\r\n\r\n        }\r\n        Custom_GUI.customgui.close();\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/game/GameController.java b/src/main/java/game/GameController.java
+--- a/src/main/java/game/GameController.java	(revision 6f7784c9fbdf6f7f7ec3d7c93a0b8455ded3e65f)
++++ b/src/main/java/game/GameController.java	(date 1666817069628)
+@@ -98,13 +98,7 @@
+                 break;
+             }
+ 
+-            // starts over til win condition is hit.
+-            if(acc1.getBalance() < 0 || acc2.getBalance() < 0){
+-                if(acc1.getBalance() < 0){
+-                    System.out.println("System crashed, Balance below 0");
+-                }
+-                break;
+-            }
++
+ 
+         }
+         Custom_GUI.customgui.close();

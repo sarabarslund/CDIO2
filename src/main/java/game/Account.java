@@ -7,6 +7,14 @@ public class Account {
         Balance += balance;
     }
 
+    public boolean negativeBalance(){
+        if (Balance < 0)
+            return false;
+        else {
+            return true;
+        }
+    }
+
     public int getBalance() {
         return Balance;
     }

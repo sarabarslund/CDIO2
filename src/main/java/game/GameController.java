@@ -6,12 +6,13 @@ public class GameController {
     Scanner sc = new Scanner(System.in);
     // Starts relevant classes
 
-    Account acc1 = new Account();
-    Account acc2 = new Account();
-    Field fieldP1 = new Field();
-    Field fieldP2 = new Field();
-    Player player = new Player();
-    Dices dices = new Dices();
+    private final Account acc1 = new Account();
+    private final Account acc2 = new Account();
+    private final Field fieldP1 = new Field();
+    private final Field fieldP2 = new Field();
+    private final Player player = new Player();
+    private final Dices dices = new Dices();
+
 
     // Sets starting balance
 
@@ -24,11 +25,11 @@ public class GameController {
 
     public void startGame() {
         //GUI StartUp
-
+        Custom_GUI custom_gui = new Custom_GUI();
+        custom_gui.startGameGUI();
         // Var for turns
         int turnSwitch = 0;
-        int currentPlayer = 0;
-
+        int currentPlayer;
         // Win condition
         Custom_GUI.customgui.showMessage("Start Game");
         while (true){
@@ -45,8 +46,16 @@ public class GameController {
             dices.rollDices();
             Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());
             // Moves the piece
+
+
+
+            // Sets the players points, check if points is negative
+
+
+
             if (currentPlayer == 1){
                 fieldP1.setPlayerPlacement(dices.getDices());
+                System.out.printf("car moves");
                 Custom_GUI.moveCar(fieldP1.getPlayerPlacement() - 1, Custom_GUI.getPlayer1());
                 if(fieldP1.getPlayerPlacement() == 10){
                     turnSwitch--;
@@ -64,16 +73,15 @@ public class GameController {
                 }
             }
 
-            // Sets the players points
-
             if (currentPlayer == 1){
                 acc1.setBalance(fieldP1.getFieldValue(fieldP1.getPlayerPlacement()));
+                if(acc1.negativeBalance() == false){break;}
                 Custom_GUI.player1.setBalance(acc1.getBalance());
             } else {
                 acc2.setBalance(fieldP2.getFieldValue(fieldP2.getPlayerPlacement()));
+                if(acc2.negativeBalance() == false){break;}
                 Custom_GUI.player2.setBalance(acc2.getBalance());
             }
-
             // Shows players new points
 
             if (currentPlayer == 1){
@@ -97,15 +105,6 @@ public class GameController {
                 }
                 break;
             }
-
-            // starts over til win condition is hit.
-            if(acc1.getBalance() < 0 || acc2.getBalance() < 0){
-                if(acc1.getBalance() < 0){
-                    System.out.println("System crashed, Balance below 0");
-                }
-                break;
-            }
-
         }
         Custom_GUI.customgui.close();
 
