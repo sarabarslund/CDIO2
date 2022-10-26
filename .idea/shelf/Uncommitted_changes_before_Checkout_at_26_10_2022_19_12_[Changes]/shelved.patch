@@ -1,0 +1,364 @@
+Index: src/main/java/Account.java
+===================================================================
+diff --git a/src/main/java/Account.java b/src/main/java/Account.java
+--- a/src/main/java/Account.java	
++++ b/src/main/java/Account.java	
+@@ -2,22 +2,15 @@
+ 
+ public class Account {
+ 
+-    private int balancePlayer1;
+-    private int balancePlayer2;
+-
+-    public int getBalancePlayer1() {
+-        return balancePlayer1;
+-    }
+-
+-    public int getBalancePlayer2() {
+-        return balancePlayer2;
+-    }
++    private int balance;
+ 
+-    public void setBalancePlayer1(int balancePlayer1) {
+-        this.balancePlayer1 += balancePlayer1;
++    public int getBalance() {
++        return balance;
+     }
+ 
+-    public void setBalancePlayer2(int balancePlayer2) {
+-        this.balancePlayer2 += balancePlayer2;
++    public boolean addBalance(int balancePlayer1) {
++        //TODO check and return false if result would be negative
++        this.balance += balancePlayer1;
++        return false;
+     }
+ }
+Index: src/main/java/Custom_GUI.java
+===================================================================
+diff --git a/src/main/java/Custom_GUI.java b/src/main/java/Custom_GUI.java
+--- a/src/main/java/Custom_GUI.java	
++++ b/src/main/java/Custom_GUI.java	
+@@ -5,72 +5,81 @@
+ 
+ import java.awt.Color;
+ 
+-import java.awt.*;
+-import java.util.Scanner;
++// Variabler i klassen er lavet public for nemhedens skyld
+ 
+ public class Custom_GUI {
++    private GUI_Field[] boardSizeGUI;
++    private GUI customGUI;
++    private GUI_Player player1;
++
++    public GUI getCustomGUI() {
++        return customGUI;
++    }
++
++    private GUI_Car car1;
++
++    // adds a player and sets the players car on the board
+ 
+-    public static GUI customgui;
+-    public static GUI_Field[] fields = new GUI_Field[12];
+-    public static GUI_Player player1;
+-    public static GUI_Player player2;
+ 
+-    public Custom_GUI(){
+-        //Game startup added as a constructor for the class
+-        customgui = new GUI(customFieldFactory(), new Color(102,255,102));
+-        String playername1 = customgui.getUserString("Enter name of player 1");
+-        String car1color = customgui.getUserSelection("Choose the color of your car","Blue","Red");
+-        GUI_Car car1 = new GUI_Car();
+-        GUI_Car car2 = new GUI_Car();
++    public GUI_Player getPlayer1() {
++        return player1;
++    }
++
++    public void createCar() {
++        customGUI.addPlayer(this.player1);
++        this.car1 = new GUI_Car();
++        this.boardSizeGUI[0].setCar(this.player1, true);
++    }
++
++
++    // Sætter startposition og tilføjer en spiller
++    public void startGameGUI(){
++         customGUI = new GUI(customFieldFactory(), new Color(102,255,102));
++         player1 = new GUI_Player(customGUI.getUserString("Enter name of player 1: "), 1000);
++    }
++
++    public void setColor(){
++        String car1color = customGUI.getUserSelection("Choose the color of your car","Blue","Red");
+         if(car1color.contains("Red")){
+-            car1.setPrimaryColor(Color.RED);
+-            car2.setPrimaryColor(Color.BLUE);
++            this.car1.setPrimaryColor(Color.RED);
+         }else{
+-            car1.setPrimaryColor(Color.BLUE);
+-            car2.setPrimaryColor(Color.RED);
++            this.car1.setPrimaryColor(Color.BLUE);
+         }
+-        player1 = new GUI_Player(playername1, 1000, car1);
+-        customgui.addPlayer(player1);
+-        fields[0].setCar(player1, true);
+-        String playername2 = customgui.getUserString("Enter name of player 2:");
+-        player2 = new GUI_Player(playername2, 1000, car2);
+-        customgui.addPlayer(player2);
+-        fields[0].setCar(player2, true);
+     }
+-    public static GUI_Field[] customFieldFactory(){
++
++    public GUI_Field[] customFieldFactory(){
++        boardSizeGUI = new GUI_Field[13];
+         int i = 0;
+-        fields[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
+-        fields[i++] = new GUI_Street("Tower", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Crater", "Loose 100", "", "-100", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Palace", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Cold Desert", "Loose 20", "", "-20", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Walled city ", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("Monastery", "", "", "0", Color.GREEN, Color.BLACK);
+-        fields[i++] = new GUI_Street("Black cave", "Loose 70", "", "-70", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("Huts in the mountain", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
+-        fields[i++] = new GUI_Street("The Werewall", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
+-        fields[i++] = new GUI_Street("The pit", "Loose 50", "", "-50", Color.RED, Color.BLACK);
+-        fields[i] = new GUI_Street("Goldmine", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
+-        return fields;
++        boardSizeGUI[i++] = new GUI_Street("Start","","","",Color.WHITE, Color.black);
++        boardSizeGUI[i++] = new GUI_Street("Win game instantly","","","",Color.WHITE, Color.black);
++        boardSizeGUI[i++] = new GUI_Street("Tower", "Gain 250", "", "250", new Color(51,255,255), Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Crater", "Loose 100", "", "-100", Color.RED, Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Palace", "Gain 100", "", "100", new Color(51,255,255), Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Cold Desert", "Loose 20", "", "-20", Color.RED, Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Walled city ", "Gain 180", "", "180", new Color(51,255,255), Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Monastery", "", "", "0", Color.GREEN, Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Black cave", "Loose 70", "", "-70", Color.RED, Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("Huts in the mountain", "Gain 60", "", "60", new Color(51,255,255), Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("The Werewall", "Extra turn", "Loose 80 and get an extra turn", "-80", Color.RED, Color.BLACK);
++        boardSizeGUI[i++] = new GUI_Street("The pit", "Loose 50", "", "-50", Color.RED, Color.BLACK);
++        boardSizeGUI[i] = new GUI_Street("Goldmine", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
++        return boardSizeGUI;
+     }
+-    public static void moveCar(int field, GUI_Player player){
+-        fields[0].setCar(player, false);
+-        fields[field].setCar(player, true);
+-        customgui.showMessage("Player moved to " + (field + 1));
++
++    public void moveCar(int field, GUI_Player player){
++        boardSizeGUI[0].setCar(player, false);
++        boardSizeGUI[field].setCar(player, true);
+     }
+-    public static void resetBoard(){
+-        for (int i = 0; i < fields.length; i++) {
+-            fields[i].setCar(player1, false);
+-            fields[i].setCar(player2,false);
++
++
++
++    public void resetBoard(){
++
++        for (int i = 0; i < boardSizeGUI.length; i++) {
++            boardSizeGUI[i].setCar(player1, false);
+         }
+-        fields[0].setCar(player1, true);
+-        fields[0].setCar(player2, true);
+-    }
+-
+-    public static GUI_Player getPlayer1() {
+-        return player1;
++        for (int i = 0; i < boardSizeGUI.length; i++) {
++        }
++        boardSizeGUI[0].setCar(this.player1, true);
+     }
+-    public static GUI_Player getPlayer2() {
+-        return player2;
+-    }
+ }
+Index: src/main/java/GameController.java
+===================================================================
+diff --git a/src/main/java/GameController.java b/src/main/java/GameController.java
+--- a/src/main/java/GameController.java	
++++ b/src/main/java/GameController.java	
+@@ -6,7 +6,10 @@
+     Scanner sc = new Scanner(System.in);
+     // Starts relevant classes
+ 
+-    Account acc = new Account();
++    Account acc1 = new Account();
++    Account acc2 = new Account();
++
++
+     Field F = new Field();
+     Player player = new Player();
+     Dices dices = new Dices();
+@@ -14,23 +17,28 @@
+     // Sets starting balance
+ 
+     public void startBalance() {
+-        acc.setBalancePlayer1(1000);
+-        acc.setBalancePlayer2(1000);
++        acc1.addBalance(1000);
++        acc2.addBalance(1000);
+     }
++
++
+ 
+     // Starts the game loop. Ends loop when someone hits 3000
+ 
+     public void startGame() {
+         //GUI StartUp
+         Custom_GUI custom_gui = new Custom_GUI();
+-
++        custom_gui.startGameGUI();
++        custom_gui.createCar();
++        custom_gui.setColor();
+ 
+         // Var for turns
+         int turnSwitch = 0;
+         int currentPlayer = 0;
+ 
+         // Win condition
+-        Custom_GUI.customgui.showMessage("Start Game");
++        custom_gui.getCustomGUI().showMessage("Player 1 press ok to start game");
++        System.out.println("Game started");
+         while (true){
+             // Chooses player to play
+             if (turnSwitch%2 == 0){
+@@ -43,68 +51,67 @@
+             }
+             // Lets current player throw the dice:
+             dices.rollDices();
+-            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());
++            custom_gui.getCustomGUI().setDice(dices.getDice1(), dices.getDice2());
++
++            System.out.println("Game still going");
+             // Moves the piece
+             if (currentPlayer == 1){
++                System.out.println("Player 1 just moved the car");
+                 F.setPlayer1Placement(dices.getDices());
+-                Custom_GUI.moveCar(F.player1Placement - 1, Custom_GUI.getPlayer1());
++                custom_gui.moveCar(F.player1Placement, custom_gui.getPlayer1());
++
+                 if(F.player1Placement == 10){
+                     turnSwitch--;
+-                    Custom_GUI.resetBoard();
+-                    Custom_GUI.customgui.showMessage("Start Next round");
++                    custom_gui.resetBoard();
++                    custom_gui.getCustomGUI().showMessage("Start Next round");
+                 }
+             }
+             else {
+                 F.setPlayer2Placement(dices.getDices());
+-                Custom_GUI.moveCar(F.player2Placement - 1, Custom_GUI.getPlayer2());
+                 if(F.player2Placement == 10){
+                     turnSwitch--;
+-                    Custom_GUI.resetBoard();
+-                    Custom_GUI.customgui.showMessage("Start Next round");
++                    custom_gui.resetBoard();
+                 }
+             }
+ 
+             // Sets the players points
++            System.out.println(currentPlayer);
++            System.out.println("Did the game stop?");
+ 
+             if (currentPlayer == 1){
+-                acc.setBalancePlayer1(F.getFieldValuePlayer1());
+-                Custom_GUI.player1.setBalance(acc.getBalancePlayer1());
++                System.out.println("Player1 balance ");
++                acc1.addBalance(F.getFieldValuePlayer1());
++                System.out.println(acc1.getBalance());
+             } else {
+-                acc.setBalancePlayer2(F.getFieldValuePlayer2());
+-                Custom_GUI.player2.setBalance(acc.getBalancePlayer2());
++                System.out.println("Player2 balance");
++                acc2.addBalance(F.getFieldValuePlayer2());
++                System.out.println(acc2.getBalance());
+             }
+ 
++            custom_gui.getPlayer1().setBalance(acc1.getBalance());
+             // Shows players new points
+ 
+-            if (currentPlayer == 1){
+-                System.out.println("Hello");
+-                System.out.println(acc.getBalancePlayer1());
+-            } else {
+-                System.out.println("no");
+-                System.out.println(acc.getBalancePlayer2());
+-            }
+-            if(F.player2Placement != 0 && F.player1Placement != 0){
+-                Custom_GUI.resetBoard();
++//            if (currentPlayer == 1){
++//                System.out.println(acc1.getBalance());
++//            } else {
++//                System.out.println(acc2.getBalance());
++//            }
++
++            if(F.player2Placement != 0 || F.player1Placement != 0){
++                custom_gui.resetBoard();
+                 F.resetPlayerPlacement();
+-                Custom_GUI.customgui.showMessage("Start Next round");
++                custom_gui.getCustomGUI().showMessage("Start Next round");
+             }
+             // starts over til win condition is hit.
+-            if(acc.getBalancePlayer1() > 3000 || acc.getBalancePlayer2() > 3000){
+-                if(acc.getBalancePlayer1() > 3000){
++            if(acc1.getBalance() > 3000 || acc2.getBalance() > 3000){
++                if(acc1.getBalance() > 3000){
+                     System.out.println("Player 1 Won");
+                 } else{
+                     System.out.println("Player 2 Won");
+                 }
+                 break;
+             }
+-
+-
+-
+-
+-
+-
+         }
+-        Custom_GUI.customgui.close();
+-
++        custom_gui.getCustomGUI().close();
+     }
+ }
+Index: src/main/java/Field.java
+===================================================================
+diff --git a/src/main/java/Field.java b/src/main/java/Field.java
+--- a/src/main/java/Field.java	
++++ b/src/main/java/Field.java	
+@@ -3,8 +3,8 @@
+ public class Field {
+     private int[] fieldValue = {0, 250, -100, 100, -20, 180, 0, -70, 60, -80, -50, 650};
+     String[] fieldName = {"start", "Tower", "Crater", "Palace gates", "Cold Desert", "Walled city", "Monastery", "Black cave", "Huts in the mountain", "The Werewall", "The pit", "Goldmine"};
+-    private int player1Placement = 0;
+-    private int player2Placement = 0;
++    int player1Placement = 0;
++    int player2Placement = 0;
+ 
+ 
+     public void setPlayer1Placement(int player1Placement) {
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -14,4 +14,15 @@
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+ 
++    <dependencies>
++        <dependency>
++            <groupId>org.junit.jupiter</groupId>
++            <artifactId>junit-jupiter</artifactId>
++            <version>5.9.0</version>
++            <scope>test</scope>
++        </dependency>
++    </dependencies>
++
++
++
+ </project>
+\ No newline at end of file
