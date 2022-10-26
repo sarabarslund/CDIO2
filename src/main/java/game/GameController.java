@@ -2,6 +2,8 @@ package game;
 
 import java.util.Scanner;
 
+import static game.Custom_GUI.customgui;
+
 public class GameController {
     Scanner sc = new Scanner(System.in);
     // Starts relevant classes
@@ -24,15 +26,19 @@ public class GameController {
     // Starts the game loop. Ends loop when someone hits 3000
 
     public void startGame() {
+
         //GUI StartUp
         Custom_GUI custom_gui = new Custom_GUI();
         custom_gui.startGameGUI();
+
         // Var for turns
         int turnSwitch = 0;
         int currentPlayer;
+
         // Win condition
-        Custom_GUI.customgui.showMessage("Start Game");
+        customgui.showMessage("Start Game");
         while (true){
+
             // Chooses player to play
             if (turnSwitch%2 == 0){
                 currentPlayer = player.getPlayer1();
@@ -42,37 +48,23 @@ public class GameController {
                 currentPlayer = player.getPlayer2();
                 turnSwitch += 1;
             }
+
             // Lets current player throw the dice:
             dices.rollDices();
-            Custom_GUI.customgui.setDice(dices.getDice1(), dices.getDice2());
-            // Moves the piece
+            customgui.setDice(dices.getDice1(), dices.getDice2());
 
-
-
-            // Sets the players points, check if points is negative
-
-
-
+            // moves the piece
             if (currentPlayer == 1){
                 fieldP1.setPlayerPlacement(dices.getDices());
-                System.out.printf("car moves");
-                Custom_GUI.moveCar(fieldP1.getPlayerPlacement() - 1, Custom_GUI.getPlayer1());
-                if(fieldP1.getPlayerPlacement() == 10){
-                    turnSwitch--;
-                    Custom_GUI.resetBoard();
-                    Custom_GUI.customgui.showMessage("Start Next round");
-                }
+                Custom_GUI.moveCar(fieldP1.getPlayerPlacement(), Custom_GUI.getPlayer1());
+
             }
             else {
                 fieldP2.setPlayerPlacement(dices.getDices());
-                Custom_GUI.moveCar(fieldP2.getPlayerPlacement() - 1, Custom_GUI.getPlayer2());
-                if(fieldP2.getPlayerPlacement() == 10){
-                    turnSwitch--;
-                    Custom_GUI.resetBoard();
-                    Custom_GUI.customgui.showMessage("Start Next round");
-                }
+                Custom_GUI.moveCar(fieldP2.getPlayerPlacement(), Custom_GUI.getPlayer2());
             }
 
+            // Shows players new points
             if (currentPlayer == 1){
                 acc1.setBalance(fieldP1.getFieldValue(fieldP1.getPlayerPlacement()));
                 if(acc1.negativeBalance() == false){break;}
@@ -82,20 +74,7 @@ public class GameController {
                 if(acc2.negativeBalance() == false){break;}
                 Custom_GUI.player2.setBalance(acc2.getBalance());
             }
-            // Shows players new points
 
-            if (currentPlayer == 1){
-                System.out.println("Hello");
-                System.out.println(acc1.getBalance());
-            } else {
-                System.out.println("no");
-                System.out.println(acc2.getBalance());
-            }
-            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){
-                Custom_GUI.resetBoard();
-                fieldP1.resetPlayerPlacement();
-                Custom_GUI.customgui.showMessage("Start Next round");
-            }
             // starts over til win condition is hit.
             if(acc1.getBalance() > 3000 || acc2.getBalance() > 3000){
                 if(acc1.getBalance() > 3000){
@@ -105,8 +84,34 @@ public class GameController {
                 }
                 break;
             }
+
+            // Information about plater movement, must be last as it pauses program
+            customgui.showMessage("Player " + currentPlayer + " moved to " + (dices.getDices()));
+
+            if(fieldP1.getPlayerPlacement() == 10){
+                turnSwitch--;
+                Custom_GUI.resetBoard();
+                customgui.showMessage("Start Next round");
+            }else if(fieldP2.getPlayerPlacement() == 10){
+                turnSwitch--;
+                Custom_GUI.resetBoard();
+                customgui.showMessage("Start Next round");
+            }
+
+
+            // Sets the players to start position for start of new round
+            if(fieldP1.getPlayerPlacement() != 0 && fieldP2.getPlayerPlacement() != 0){
+                System.out.println("I resat the board");
+                Custom_GUI.resetBoard();
+                fieldP1.resetPlayerPlacement();
+                fieldP2.resetPlayerPlacement();
+                customgui.showMessage("Start Next round");
+            }
+
+
+
         }
-        Custom_GUI.customgui.close();
+        customgui.close();
 
     }
 }

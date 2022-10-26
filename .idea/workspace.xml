@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Getting rid of redundant code in GameController, Account and Field classes">
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Setting up for tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Account.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/game/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/Custom_GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Custom_GUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/game/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/GameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/game/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666817016705</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Setting up for tests">
+      <created>1666821438570</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666821438570</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,7 +216,8 @@
     <MESSAGE value="Custom GUI Implementation" />
     <MESSAGE value="Custom GUI Implementation now functional" />
     <MESSAGE value="Getting rid of redundant code in GameController, Account and Field classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Getting rid of redundant code in GameController, Account and Field classes" />
+    <MESSAGE value="Setting up for tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setting up for tests" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
