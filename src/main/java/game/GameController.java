@@ -102,9 +102,7 @@ public class GameController {
             // starts over til win condition is hit.
             if(acc1.getBalance() < 0 || acc2.getBalance() < 0){
                 if(acc1.getBalance() < 0){
-                    System.out.println("Player 1 Won");
-                } else{
-                    System.out.println("Player 2 Won");
+                    System.out.println("System crashed, Balance below 0");
                 }
                 break;
             }
