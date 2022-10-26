@@ -1,7 +1,7 @@
 package test.java;
 
-import main.java.Dices;
-import main.java.Field;
+import game.Dices;
+import game.Field;
 import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;

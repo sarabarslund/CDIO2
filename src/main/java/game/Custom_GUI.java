@@ -1,12 +1,9 @@
-package main.java;
+package game;
 
 import gui_fields.*;
 import gui_main.GUI;
 
 import java.awt.Color;
-
-import java.awt.*;
-import java.util.Scanner;
 
 public class Custom_GUI {
 
