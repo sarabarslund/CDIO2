@@ -24,7 +24,6 @@ public class GameController {
 
     public void startGame() {
         //GUI StartUp
-        Custom_GUI custom_gui = new Custom_GUI();
 
         // Var for turns
         int turnSwitch = 0;
