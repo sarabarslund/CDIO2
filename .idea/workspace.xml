@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Getting rid of redundant code in GameController, Account and Field classes" />
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Fixed a bug when landing on extra turn." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666817016705</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Fixed a bug when landing on extra turn.">
+      <created>1666825687291</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666825687291</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,7 +211,8 @@
     <MESSAGE value="Custom GUI Implementation now functional" />
     <MESSAGE value="Getting rid of redundant code in GameController, Account and Field classes" />
     <MESSAGE value="Setting up for tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setting up for tests" />
+    <MESSAGE value="Fixed a bug when landing on extra turn." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug when landing on extra turn." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
