@@ -1,5 +1,7 @@
-import game.Dices;
-import game.Field;
+package game_test;
+
+import game_test.Dices;
+import game_test.Field;
 import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package game;
+package game_test;
 
 import gui_fields.*;
 import gui_main.GUI;

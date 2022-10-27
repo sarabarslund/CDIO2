@@ -1,8 +1,8 @@
-package game;
+package game_test;
 
 import java.util.Scanner;
 
-import static game.Custom_GUI.customgui;
+import static game_test.Custom_GUI.customgui;
 
 public class GameController {
     Scanner sc = new Scanner(System.in);

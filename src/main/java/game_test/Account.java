@@ -1,4 +1,4 @@
-package game;
+package game_test;
 
 public class Account {
     private int Balance;

@@ -1,4 +1,4 @@
-package game;
+package game_test;
 
 public class Player {
     private final int player1 = 1, player2 = 2;
