@@ -6,6 +6,7 @@ public class Dices {
 
     private final Random random = new Random();
     private int dice1, dice2;
+    private static final int sides = 6;
 
     public int getDices() {
         return dice1 + dice2;
@@ -20,8 +21,8 @@ public class Dices {
     }
 
     public void rollDices() {
-        this.dice1 = random.nextInt(1, 7);
-        this.dice2 = random.nextInt(1, 7);
+        this.dice1 = random.nextInt(1, sides + 1);
+        this.dice2 = random.nextInt(1, sides + 1);
 
     }
 }
