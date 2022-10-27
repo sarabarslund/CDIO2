@@ -36,7 +36,7 @@ public class Custom_GUI {
         fields[0].setCar(player2, true);
     }
 
-    // define the playing fields
+    // Defining the playing fields
     public static GUI_Field[] customFieldFactory(){
         int i = 0;
 
@@ -55,10 +55,20 @@ public class Custom_GUI {
         fields[i] = new GUI_Street("Goldmine\n   12", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
         return fields;
     }
+
+    /**
+     * Moves the car to specified field and deletes car from the Start field
+     * @param field Field number, to witch you want to move.
+     * @param player The player that moves
+     */
     public static void moveCar(int field, GUI_Player player){
         fields[0].setCar(player, false);
         fields[field].setCar(player, true);
     }
+
+    /**
+     * Resets bord so that both cars get placed on the Start field
+     */
     public static void resetBoard(){
         for (int i = 0; i < fields.length; i++) {
             fields[i].setCar(player1, false);
@@ -68,9 +78,18 @@ public class Custom_GUI {
         fields[0].setCar(player2, true);
     }
 
+    /**
+     * Gets Player 1
+     * @return player 1
+     */
     public static GUI_Player getPlayer1() {
         return player1;
     }
+
+    /**
+     * Gets Player 2
+     * @return player 2
+     */
     public static GUI_Player getPlayer2() {
         return player2;
     }
