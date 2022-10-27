@@ -1,6 +1,6 @@
 package game_test;
 
-import game_test.Dices;
+import game.Dices;
 import org.junit.jupiter.api.RepeatedTest;
 import java.util.Arrays;
 
