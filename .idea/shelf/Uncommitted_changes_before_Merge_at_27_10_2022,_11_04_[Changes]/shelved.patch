@@ -1,0 +1,190 @@
+Index: src/main/java/game/Custom_GUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\n\nimport gui_fields.*;\nimport gui_main.GUI;\n\nimport java.awt.Color;\n\npublic class Custom_GUI {\n    // define static information. Made static and public as the GUI is unlikely to have commands conflicting with other classes.\n    public static GUI customgui;\n    public  static GUI_Field[] fields = new GUI_Field[13];\n    public static GUI_Player player1;\n    public static GUI_Player player2;\n\n    // Starts the gameUI, and prompts the user to enter his/hers name, as well as setting their cars color.\n    public void startGameGUI(){\n        //Game startup added as a constructor for the class\n        customgui = new GUI(customFieldFactory(), new Color(102,255,102));\n        String playername1 = customgui.getUserString(\"Enter name of player 1\");\n        String car1color = customgui.getUserSelection(\"Choose the color of your car\",\"Blue\",\"Red\");\n        GUI_Car car1 = new GUI_Car();\n        GUI_Car car2 = new GUI_Car();\n        if(car1color.contains(\"Red\")){\n            car1.setPrimaryColor(Color.RED);\n            car2.setPrimaryColor(Color.BLUE);\n        }else{\n            car1.setPrimaryColor(Color.BLUE);\n            car2.setPrimaryColor(Color.RED);\n        }\n        player1 = new GUI_Player(playername1, 1000, car1);\n        customgui.addPlayer(player1);\n        fields[0].setCar(player1, true);\n        String playername2 = customgui.getUserString(\"Enter name of player 2:\");\n        player2 = new GUI_Player(playername2, 1000, car2);\n        customgui.addPlayer(player2);\n        fields[0].setCar(player2, true);\n    }\n\n    // define the playing fields\n    public static GUI_Field[] customFieldFactory(){\n        int i = 0;\n\n        fields[i++] = new GUI_Street(\"Start\", \"\", \"\", \"-50\", Color.WHITE, Color.BLACK);\n        fields[i++] = new GUI_Street(\"Instant win\\n   1\",\"\",\"\",\"\",Color.BLACK, Color.WHITE);\n        fields[i++] = new GUI_Street(\"Tower\\n   2\", \"Gain 250\", \"\", \"250\", new Color(51,255,255), Color.BLACK);\n        fields[i++] = new GUI_Street(\"Crater\\n   3\", \"Loose 100\", \"\", \"-100\", Color.RED, Color.BLACK);\n        fields[i++] = new GUI_Street(\"Palace\\n   4\", \"Gain 100\", \"\", \"100\", new Color(51,255,255), Color.BLACK);\n        fields[i++] = new GUI_Street(\"Cold Desert\\n   5\", \"Loose 20\", \"\", \"-20\", Color.RED, Color.BLACK);\n        fields[i++] = new GUI_Street(\"Walled city\\n   6\", \"Gain 180\", \"\", \"180\", new Color(51,255,255), Color.BLACK);\n        fields[i++] = new GUI_Street(\"Monastery\\n   7\", \"\", \"\", \"0\", Color.GREEN, Color.BLACK);\n        fields[i++] = new GUI_Street(\"Black cave\\n   8\", \"Loose 70\", \"\", \"-70\", Color.RED, Color.BLACK);\n        fields[i++] = new GUI_Street(\"Huts in the mountain\\n   9\", \"Gain 60\", \"\", \"60\", new Color(51,255,255), Color.BLACK);\n        fields[i++] = new GUI_Street(\"The Werewall\\n   10\", \"Extra turn\", \"Loose 80 and get an extra turn\", \"-80\", Color.RED, Color.BLACK);\n        fields[i++] = new GUI_Street(\"The pit\\n   11\", \"Loose 50\", \"\", \"-50\", Color.RED, Color.BLACK);\n        fields[i] = new GUI_Street(\"Goldmine\\n   12\", \"Gain 650!\", \"\", \"650\", new Color(255, 215, 0), Color.BLACK);\n        return fields;\n    }\n    public static void moveCar(int field, GUI_Player player){\n        fields[0].setCar(player, false);\n        fields[field].setCar(player, true);\n    }\n    public static void resetBoard(){\n        for (int i = 0; i < fields.length; i++) {\n            fields[i].setCar(player1, false);\n            fields[i].setCar(player2,false);\n        }\n        fields[0].setCar(player1, true);\n        fields[0].setCar(player2, true);\n    }\n\n    public static GUI_Player getPlayer1() {\n        return player1;\n    }\n    public static GUI_Player getPlayer2() {\n        return player2;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/game/Custom_GUI.java b/src/main/java/game/Custom_GUI.java
+--- a/src/main/java/game/Custom_GUI.java	(revision 3f9b908fba3c1b545a7a0285b71f9f7824e262eb)
++++ b/src/main/java/game/Custom_GUI.java	(date 1666861465092)
+@@ -36,7 +36,7 @@
+         fields[0].setCar(player2, true);
+     }
+ 
+-    // define the playing fields
++    // Defining the playing fields
+     public static GUI_Field[] customFieldFactory(){
+         int i = 0;
+ 
+@@ -55,10 +55,20 @@
+         fields[i] = new GUI_Street("Goldmine\n   12", "Gain 650!", "", "650", new Color(255, 215, 0), Color.BLACK);
+         return fields;
+     }
++
++    /**
++     * Moves the car to specified field and deletes car from the Start field
++     * @param field Field number, to witch you want to move.
++     * @param player The player that moves
++     */
+     public static void moveCar(int field, GUI_Player player){
+         fields[0].setCar(player, false);
+         fields[field].setCar(player, true);
+     }
++
++    /**
++     * Resets bord so that both cars get placed on the Start field
++     */
+     public static void resetBoard(){
+         for (int i = 0; i < fields.length; i++) {
+             fields[i].setCar(player1, false);
+@@ -68,9 +78,18 @@
+         fields[0].setCar(player2, true);
+     }
+ 
++    /**
++     * Gets Player 1
++     * @return player 1
++     */
+     public static GUI_Player getPlayer1() {
+         return player1;
+     }
++
++    /**
++     * Gets Player 2
++     * @return player 2
++     */
+     public static GUI_Player getPlayer2() {
+         return player2;
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"small changes\">\n      <change afterPath=\"$PROJECT_DIR$/src/test/java/game/NegativeAccountTest.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022,_08_50_[Changes]/shelved.patch\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022__08_50__Changes_.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/CDIO2.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/CDIO2.iml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/test-classes/test/java/DiceTest.class\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"CodeInsightWorkspaceSettings\">\n    <option name=\"optimizeImportsOnTheFly\" value=\"true\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n        <option value=\"JUnit5 Test Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/game/Dices.java\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/game/GameController.java\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/game/Main.java\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Fu5XT1oEwyIFRNNnNaL3kDTMxW\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"Git.Branch.Popup.ShowAllRemotes\": \"true\",\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\n    \"WebServerToolWindowFactoryState\": \"false\",\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary\": \"JUnit5\",\n    \"com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5\": \"\",\n    \"last_opened_file_path\": \"/Users/anthonhertzbie/IdeaProjects/CDIO2\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"project.structure.last.edited\": \"Modules\",\n    \"project.structure.proportion\": \"0.15\",\n    \"project.structure.side.proportion\": \"0.2\",\n    \"settings.editor.selected.configurable\": \"preferences.lookFeel\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CreateTestDialog.Recents.Supers\">\n      <recent name=\"\" />\n    </key>\n    <key name=\"CreateTestDialog.RecentsKey\">\n      <recent name=\"game\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"JUnit.NegativeAccountTest\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"game.Main\" />\n      <module name=\"CDIO2\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NegativeAccountTest\" type=\"JUnit\" factoryName=\"JUnit\" temporary=\"true\" nameIsGenerated=\"true\">\n      <module name=\"CDIO2\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"game.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <option name=\"PACKAGE_NAME\" value=\"game\" />\n      <option name=\"MAIN_CLASS_NAME\" value=\"game.NegativeAccountTest\" />\n      <option name=\"TEST_OBJECT\" value=\"class\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <list>\n      <item itemvalue=\"Application.Main\" />\n      <item itemvalue=\"JUnit.NegativeAccountTest\" />\n    </list>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"JUnit.NegativeAccountTest\" />\n        <item itemvalue=\"Application.Main\" />\n        <item itemvalue=\"Application.Main\" />\n        <item itemvalue=\"Application.Main\" />\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"5396839b-e620-47bd-8034-ecc9c1fff506\" name=\"Changes\" comment=\"\" />\n      <created>1665329169693</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1665329169693</updated>\n      <workItem from=\"1665329726647\" duration=\"42000\" />\n      <workItem from=\"1666855274181\" duration=\"781000\" />\n      <workItem from=\"1666856189201\" duration=\"1206000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Field class made\">\n      <created>1666621725761</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666621725761</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Player class made\">\n      <created>1666621826098</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666621826098</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"New dices\">\n      <created>1666622907881</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666622907881</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"New dices\">\n      <created>1666622938273</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666622938273</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Small changes\">\n      <created>1666626012634</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666626012634</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Custom GUI Implementation\">\n      <created>1666635324874</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666635324875</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Custom GUI Implementation now functional\">\n      <created>1666636186539</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1666636186539</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"8\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"origin/master\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"RECENT_FILTERS\">\n      <map>\n        <entry key=\"Branch\">\n          <value>\n            <list>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/master\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"origin/GameControllerv2\" />\n                </option>\n              </RecentGroup>\n              <RecentGroup>\n                <option name=\"FILTER_VALUES\">\n                  <option value=\"Account\" />\n                </option>\n              </RecentGroup>\n            </list>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Field class made\" />\n    <MESSAGE value=\"Player class made\" />\n    <MESSAGE value=\"New dices\" />\n    <MESSAGE value=\"Small changes\" />\n    <MESSAGE value=\"Custom GUI Implementation\" />\n    <MESSAGE value=\"Custom GUI Implementation now functional\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Custom GUI Implementation now functional\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 3f9b908fba3c1b545a7a0285b71f9f7824e262eb)
++++ b/.idea/workspace.xml	(date 1666860540055)
+@@ -4,14 +4,8 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="small changes">
+-      <change afterPath="$PROJECT_DIR$/src/test/java/game/NegativeAccountTest.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022,_08_50_[Changes]/shelved.patch" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_20_10_2022__08_50__Changes_.xml" beforeDir="false" />
++    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Renamed game_test package">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/CDIO2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CDIO2.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/test-classes/test/java/DiceTest.class" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -36,11 +30,6 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-  </component>
+-  <component name="HighlightingSettingsPerFile">
+-    <setting file="file://$PROJECT_DIR$/src/main/java/game/Dices.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/game/GameController.java" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/src/main/java/game/Main.java" root0="FORCE_HIGHLIGHTING" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -51,25 +40,25 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Git.Branch.Popup.ShowAllRemotes": "true",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+-    "last_opened_file_path": "/Users/anthonhertzbie/IdeaProjects/CDIO2",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Modules",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "preferences.lookFeel"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
++    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/Users/anthonhertzbie/IdeaProjects/CDIO2&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CreateTestDialog.Recents.Supers">
+       <recent name="" />
+@@ -78,7 +67,7 @@
+       <recent name="game" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="JUnit.NegativeAccountTest">
++  <component name="RunManager" selected="Application.Main">
+     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="game.Main" />
+       <module name="CDIO2" />
+@@ -107,11 +96,11 @@
+     </list>
+     <recent_temporary>
+       <list>
++        <item itemvalue="Application.Main" />
+         <item itemvalue="JUnit.NegativeAccountTest" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="Application.Main" />
+         <item itemvalue="Application.Main" />
+-        <item itemvalue="Application.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -176,7 +165,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1666636186539</updated>
+     </task>
+-    <option name="localTasksCounter" value="8" />
++    <task id="LOCAL-00008" summary="Renamed game_test package">
++      <created>1666858753085</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1666858753085</updated>
++    </task>
++    <option name="localTasksCounter" value="9" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -237,6 +233,8 @@
+     <MESSAGE value="Small changes" />
+     <MESSAGE value="Custom GUI Implementation" />
+     <MESSAGE value="Custom GUI Implementation now functional" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Custom GUI Implementation now functional" />
++    <MESSAGE value="Tested for negative balance" />
++    <MESSAGE value="Renamed game_test package" />
++    <option name="LAST_COMMIT_MESSAGE" value="Renamed game_test package" />
+   </component>
+ </project>
+\ No newline at end of file
