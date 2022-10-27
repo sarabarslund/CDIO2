@@ -1,3 +1,5 @@
+package game_test;
+
 import game.Dices;
 import org.junit.jupiter.api.RepeatedTest;
 import java.util.Arrays;

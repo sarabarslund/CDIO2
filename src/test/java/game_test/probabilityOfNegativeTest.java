@@ -1,3 +1,5 @@
+package game_test;
+
 import game.Dices;
 import game.Field;
 import org.junit.jupiter.api.RepeatedTest;
