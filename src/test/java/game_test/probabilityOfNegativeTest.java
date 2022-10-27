@@ -1,7 +1,7 @@
-package test.java;
+package game_test;
 
-import main.java.Dices;
-import main.java.Field;
+import game.Dices;
+import game.Field;
 import org.junit.jupiter.api.RepeatedTest;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,7 +30,7 @@ public class probabilityOfNegativeTest {
             // RUller terninger
             dices.rollDices();
             // Får value og ud fra slag, ligesom i spillet
-            Balance += value.getFieldValue()[dices.getDices() - 1];
+            Balance += value.getFieldValue(dices.getDices() - 1);
             // Tester om points bliver negative
             assertTrue(Balance > 0);
         }
