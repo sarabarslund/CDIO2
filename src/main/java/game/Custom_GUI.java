@@ -12,6 +12,7 @@ public class Custom_GUI {
     public static GUI_Player player1;
     public static GUI_Player player2;
 
+
     // Starts the gameUI, and prompts the user to enter his/hers name, as well as setting their cars color.
     public void startGameGUI(){
         //Game startup added as a constructor for the class

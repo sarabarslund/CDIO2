@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Fixed a bug when landing on extra turn.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/CDIO2_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_26_2022_10_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_26_2022_10_44_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_26_2022_8_57_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_26_2022_8_57_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_10_2022__12_47__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_25_10_2022__12_47__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_26_2022_10_44_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_26_2022_10_44_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_26_2022_8_57_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_10_26_2022_8_57_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_10_2022__12_48__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_10_2022__12_48__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2022__09_08__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_10_2022__09_08__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Added manifest, creating file">
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Custom_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Dices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Dices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/game/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/game/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666825687291</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added manifest, creating file">
+      <created>1666869409236</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666869409236</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +255,8 @@
     <MESSAGE value="Getting rid of redundant code in GameController, Account and Field classes" />
     <MESSAGE value="Setting up for tests" />
     <MESSAGE value="Fixed a bug when landing on extra turn." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug when landing on extra turn." />
+    <MESSAGE value="Added manifest, creating file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added manifest, creating file" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
