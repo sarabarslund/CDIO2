@@ -1,7 +1,4 @@
-package main.java;
-
-import gui_main.GUI;
-import java.util.Random;
+package game;
 
 public class Main {
     public static void main(String[] args) {

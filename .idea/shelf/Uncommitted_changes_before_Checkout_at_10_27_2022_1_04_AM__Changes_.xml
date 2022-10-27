@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM_[Changes]" date="1666825454327" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 10/27/2022 1:04 AM [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/game/Custom_GUI.class" />
+    <option name="AFTER_PATH" value="target/classes/game/Custom_GUI.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM_[Changes]/Custom_GUI.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/game/GameController.class" />
+    <option name="AFTER_PATH" value="target/classes/game/GameController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_10_27_2022_1_04_AM_[Changes]/GameController.class" />
+  </binary>
+</changelist>

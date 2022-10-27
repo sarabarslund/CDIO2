@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.Dices;
+import game.Dices;
 import org.junit.jupiter.api.RepeatedTest;
 import java.util.Arrays;
 

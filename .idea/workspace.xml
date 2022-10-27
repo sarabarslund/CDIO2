@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Custom GUI Implementation now functional" />
+    <list default="true" id="5396839b-e620-47bd-8034-ecc9c1fff506" name="Changes" comment="Fixed a bug when landing on extra turn." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,14 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Dice_feature" />
+        <entry key="$PROJECT_DIR$" value="GameControllerv2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/GameController.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Main.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -43,16 +39,26 @@
     &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emils/Downloads/matadorgui-3.1.6.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\emils\OneDrive\Dokumenter\GitHub\CDIO2\src" />
+    </key>
+  </component>
   <component name="RunManager">
-    <configuration name="Custom_GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Custom_GUI" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="game.Main" />
       <module name="CDIO2" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -60,11 +66,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Custom_GUI" />
-        <item itemvalue="Application.Custom_GUI" />
-        <item itemvalue="Application.Custom_GUI" />
-        <item itemvalue="Application.Custom_GUI" />
-        <item itemvalue="Application.Custom_GUI" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -77,6 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665329169693</updated>
       <workItem from="1665329726647" duration="42000" />
+      <workItem from="1666815863715" duration="785000" />
     </task>
     <task id="LOCAL-00001" summary="Field class made">
       <created>1666621725761</created>
@@ -127,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666636186539</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Getting rid of redundant code in GameController, Account and Field classes">
+      <created>1666817016705</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666817016705</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Fixed a bug when landing on extra turn.">
+      <created>1666825687291</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666825687291</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +209,13 @@
     <MESSAGE value="Small changes" />
     <MESSAGE value="Custom GUI Implementation" />
     <MESSAGE value="Custom GUI Implementation now functional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Custom GUI Implementation now functional" />
+    <MESSAGE value="Getting rid of redundant code in GameController, Account and Field classes" />
+    <MESSAGE value="Setting up for tests" />
+    <MESSAGE value="Fixed a bug when landing on extra turn." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a bug when landing on extra turn." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
