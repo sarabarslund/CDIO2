@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/Field.java
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/Main.java
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/GameController.java
@@ -5,3 +6,12 @@
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/Custom_GUI.java
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/Account.java
 /Users/anthonhertzbie/IdeaProjects/CDIO2/src/main/java/game/Dices.java
+=======
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Account.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Dices.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Custom_GUI.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Field.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\GameController.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Main.java
+C:\Users\emils\Desktop\Git_Projekter\CDIO2\src\main\java\game\Player.java
+>>>>>>> origin/master
